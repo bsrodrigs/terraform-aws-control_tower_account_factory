@@ -167,33 +167,33 @@ resource "aws_internet_gateway" "aft-vpc-igw" {
   }
 }
 
-resource "aws_eip" "aft-vpc-natgw-01" {}
+# resource "aws_eip" "aft-vpc-natgw-01" {}
 
-resource "aws_eip" "aft-vpc-natgw-02" {}
+# resource "aws_eip" "aft-vpc-natgw-02" {}
 
-resource "aws_nat_gateway" "aft-vpc-natgw-01" {
-  depends_on = [aws_internet_gateway.aft-vpc-igw]
+# resource "aws_nat_gateway" "aft-vpc-natgw-01" {
+#   depends_on = [aws_internet_gateway.aft-vpc-igw]
 
-  allocation_id = aws_eip.aft-vpc-natgw-01.id
-  subnet_id     = aws_subnet.aft_vpc_public_subnet_01.id
+#   allocation_id = aws_eip.aft-vpc-natgw-01.id
+#   subnet_id     = aws_subnet.aft_vpc_public_subnet_01.id
 
-  tags = {
-    Name = "aft-vpc-natgw-01"
-  }
+#   tags = {
+#     Name = "aft-vpc-natgw-01"
+#   }
 
-}
+# }
 
-resource "aws_nat_gateway" "aft-vpc-natgw-02" {
-  depends_on = [aws_internet_gateway.aft-vpc-igw]
+# resource "aws_nat_gateway" "aft-vpc-natgw-02" {
+#   depends_on = [aws_internet_gateway.aft-vpc-igw]
 
-  allocation_id = aws_eip.aft-vpc-natgw-02.id
-  subnet_id     = aws_subnet.aft_vpc_public_subnet_02.id
+#   allocation_id = aws_eip.aft-vpc-natgw-02.id
+#   subnet_id     = aws_subnet.aft_vpc_public_subnet_02.id
 
-  tags = {
-    Name = "aft-vpc-natgw-02"
-  }
+#   tags = {
+#     Name = "aft-vpc-natgw-02"
+#   }
 
-}
+# }
 
 #########################################
 # VPC Gateway Endpoints
